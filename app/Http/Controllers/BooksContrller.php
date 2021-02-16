@@ -23,6 +23,14 @@ class BooksContrller extends Controller
 
     public function store(Request $request){
 
+      $validated = $request->validate([
+         'name' => 'required',
+         'pages' => 'required',
+         'Isbn' => 'required',
+         'price' => 'required',
+     ]);
+ 
+
       $book = new Book;
        $book->name = $request->name;
        $book->pages = $request->pages;
@@ -30,7 +38,7 @@ class BooksContrller extends Controller
        $book->price =  $request->price;
        $book->published_at = $request->published_at;
        $book->save(); 
-       
+
       return redirect('/books',302);
     }
 }
