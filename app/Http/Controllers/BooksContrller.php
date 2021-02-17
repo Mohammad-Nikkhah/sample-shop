@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BookStorerequest;
 use App\Models\Book;
 use Illuminate\Foundation\Exceptions\RegisterErrorViewPaths;
 use Illuminate\Http\Request;
@@ -21,15 +22,7 @@ class BooksContrller extends Controller
        return view('create');
     }
 
-    public function store(Request $request){
-
-      $validated = $request->validate([
-         'name' => 'required',
-         'pages' => 'required',
-         'Isbn' => 'required',
-         'price' => 'required',
-     ]);
- 
+    public function store(BookStorerequest $request){
 
       $book = new Book;
        $book->name = $request->name;

@@ -31,17 +31,7 @@
     <label for="Published_at">Create time</label>
     <input type="string" class="form-control"  placeholder="date" name="date" value="<?php echo date('y-m-d');?>">
   </div>
-
-  @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
+  @include('layouts.alert')
   <button type="submit" class="btn btn-success">Save</button>
 </form>
    </div>
