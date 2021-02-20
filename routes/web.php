@@ -21,3 +21,4 @@ Route::get('/books',[BooksContrller::class,'index']);
 Route::get('/books/show/{id?}',[BooksContrller::class,'show']);
 Route::get('/book/create',[BooksContrller::class,'create']);
 Route::post('/create/book',[BooksContrller::class,'store'])->name('create.book');
+Route::view('login','livewire.home');
